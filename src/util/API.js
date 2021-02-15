@@ -5,8 +5,8 @@ import axios from "axios";
 export default {
   populatePeople: function () {
     return axios.get("https://randomuser.me/api/", { params: {
-        format=JSON,
-        results=1,
+        format:JSON,
+        results:1
     }});
   },
 };
