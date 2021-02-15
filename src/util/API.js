@@ -6,7 +6,7 @@ export default {
   populatePeople: function () {
     return axios.get("https://randomuser.me/api/", { params: {
         format=JSON,
-        results=10,
+        results=1,
     }});
   },
 };
