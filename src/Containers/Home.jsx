@@ -21,9 +21,9 @@ class Home extends Component {
         // Container
         // Table Headers
         // Map over data - which return Row
-        {this.state.employeeList.data?.results.map(result => {
-            return <Row />
-        })}
+        {/* {this.state.employeeList.data?.results.map(result => {
+            return <EmployeeRow values={result}/>
+        })} */}
         <div>
             Hi {this.state.employeeList.data?.results[0].name.first}
         </div>
