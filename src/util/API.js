@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default {
   populatePeople: function () {
-    return axios.get("https://randomuser.me/api/", { params: {
+    return axios.get("https://randomuser.me/api/?inc=name,email,dob,picture,phone", { params: {
         format:JSON,
         results:1
     }});
