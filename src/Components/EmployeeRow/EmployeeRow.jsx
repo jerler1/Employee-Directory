@@ -11,7 +11,7 @@ const EmployeeRow = (props) => {
         <img src={props.values.picture.thumbnail}></img>
       </td>
       <td>
-        <p>
+        <p id="rem">
           {props.values.name.first} {props.values.name.last}
         </p>
       </td>

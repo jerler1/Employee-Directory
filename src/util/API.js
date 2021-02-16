@@ -6,7 +6,8 @@ export default {
   populatePeople: function () {
     return axios.get("https://randomuser.me/api/?inc=name,email,dob,picture,phone", { params: {
         format:JSON,
-        results:10
+        results:10,
+        nat:"us"
     }});
   },
 };
