@@ -21,14 +21,12 @@ class Home extends Component {
     return (
       <>
         <Container>
-          <Row>
+          <Row class="container-fluid">
             <Column>
-              Searchbar goes here.
               <Searchbar />
             </Column>
           </Row>
-          <Row>
-              {/* {console.log(this.state.employeeList)} */}
+          <Row class="container-fluid">
             <EmployeeTable data={this.state.employeeList} />
           </Row>
         </Container>

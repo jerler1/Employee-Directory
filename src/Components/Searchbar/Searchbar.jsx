@@ -6,7 +6,6 @@ const Searchbar = (props) => {
     <form className="search">
       <div className="form-group">
         <input
-          value={props.search}
           onChange={props.handleInputChange}
           name="search"
           type="text"

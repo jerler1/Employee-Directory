@@ -4,7 +4,7 @@ import EmployeeRow from "../EmployeeRow/EmployeeRow";
 
 const EmployeeTable = (props) => {
   return (
-    <table>
+    <table className="table">
       <thead>
         <tr>
           <th>Image</th>
