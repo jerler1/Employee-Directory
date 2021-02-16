@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../util/API";
-// import Container
+import Container from "../Components/Container/Container";
 // import Employee
 // import EmployeeRow
 
@@ -18,7 +18,9 @@ class Home extends Component {
   render() {
     return (
         <>
-        // Container
+        <Container>
+            
+        </Container>
         // Table Headers
         // Map over data - which return Row
         {/* {this.state.employeeList.data?.results.map(result => {
