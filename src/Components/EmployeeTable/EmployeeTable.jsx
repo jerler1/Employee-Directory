@@ -7,10 +7,11 @@ const EmployeeTable = (props) => {
     <table>
       <thead>
         <tr>
-          <th>Headings go here.</th>
-          {/* {this.state.employeeList.data?.results.map(result => {
-            return <EmployeeRow values={result}/>
-        })} */}
+          <th>Image</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>DOB</th>
         </tr>
       </thead>
       <tbody>
