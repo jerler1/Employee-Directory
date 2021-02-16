@@ -3,8 +3,8 @@ import API from "../util/API";
 import Container from "../Components/Container/Container";
 import Row from "../Components/Row/Row";
 import Column from "../Components/Column/Column";
-// import Employee
-// import EmployeeRow
+import Searchbar from "../Components/Searchbar/Searchbar";
+import EmployeeTable from "../Components/EmployeeTable/EmployeeTable";
 
 class Home extends Component {
   state = {
@@ -14,31 +14,26 @@ class Home extends Component {
   // When this component is functioning - go get some users.
   componentDidMount() {
     API.populatePeople().then((resultingData) => {
-        this.setState({ employeeList: resultingData })
+      this.setState({ employeeList: resultingData });
     });
   }
   render() {
     return (
-        <>
+      <>
         <Container>
-            <Row>
-                <Column>
-                    Searchbar goes here.
-                </Column>
-            </Row>
-            <Row>
-                Table goes here
-            </Row>
+          <Row>
+            <Column>
+              Searchbar goes here.
+              <Searchbar />
+            </Column>
+          </Row>
+          <Row>
+              {/* {console.log(this.state.employeeList)} */}
+            <EmployeeTable data={this.state.employeeList} />
+          </Row>
         </Container>
-        // Table Headers
-        // Map over data - which return Row
-        {/* {this.state.employeeList.data?.results.map(result => {
-            return <EmployeeRow values={result}/>
-        })} */}
-        <div>
-            Hi {this.state.employeeList.data?.results[0].name.first}
-        </div>
-        </>);
+      </>
+    );
   }
 }
 
