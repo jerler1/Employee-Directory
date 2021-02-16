@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../util/API";
 import Container from "../Components/Container/Container";
+import Row from "../Components/Row/Row";
+import Column from "../Components/Column/Column";
 // import Employee
 // import EmployeeRow
 
@@ -19,7 +21,14 @@ class Home extends Component {
     return (
         <>
         <Container>
-            
+            <Row>
+                <Column>
+                    Searchbar goes here.
+                </Column>
+            </Row>
+            <Row>
+                Table goes here
+            </Row>
         </Container>
         // Table Headers
         // Map over data - which return Row
