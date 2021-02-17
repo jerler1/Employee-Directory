@@ -8,18 +8,10 @@ const EmployeeTable = (props) => {
       <thead>
         <tr>
           <th>Image</th>
-          <th>
-            <button onClick={(event) => props.onClickSort(event)}>Name</button>
-          </th>
-          <th>
-            <button onClick={(event) => props.onClickSort(event)}>Phone</button>
-          </th>
-          <th>
-            <button onClick={(event) => props.onClickSort(event)}>Email</button>
-          </th>
-          <th>
-            <button onClick={(event) => props.onClickSort(event)}>DOB</button>
-          </th>
+          <th onClick={(event) => props.onClickSort(event)}>Name</th>
+          <th onClick={(event) => props.onClickSort(event)}>Phone</th>
+          <th onClick={(event) => props.onClickSort(event)}>Email</th>
+          <th onClick={(event) => props.onClickSort(event)}>DOB</th>
         </tr>
       </thead>
       <tbody>

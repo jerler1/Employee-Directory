@@ -12,6 +12,7 @@ class Home extends Component {
     filteredList: [],
     sortedList: [],
     filter: "",
+    asc: true,
   };
 
   // When this component is functioning - go get some users.
@@ -34,7 +35,9 @@ class Home extends Component {
       console.log(object);
       return (
         object.email.includes(this.state.filter) ||
-        object.phone.includes(this.state.filter)
+        object.phone.includes(this.state.filter) ||
+        object.name.first.includes(this.state.filter) ||
+        object.dob.date.includes(this.state.filter)
       );
     });
   };
@@ -42,38 +45,40 @@ class Home extends Component {
   // When a button is clicked on the table sort that column.
   handleSorting = (event) => {
     const target = event.target.innerHTML;
+    this.setState({ asc: !this.state.asc });
+    const direction = this.state.asc ? 1 : -1;
     this.setState({
       sortedList: this.state.employeeList.sort((a, b) => {
         switch (target) {
           case "Name":
             if (a.name.first < b.name.first) {
-              return -1;
+              return -1 * direction;
             } else if (a.name.first > b.name.first) {
-              return 1;
+              return 1 * direction;
             } else {
               return 0;
             }
           case "Phone":
             if (a.phone < b.phone) {
-              return -1;
+              return -1 * direction;
             } else if (a.phone > b.phone) {
-              return 1;
+              return 1 * direction;
             } else {
               return 0;
             }
           case "Email":
             if (a.email < b.email) {
-              return -1;
+              return -1 * direction;
             } else if (a.email > b.email) {
-              return 1;
+              return 1 * direction;
             } else {
               return 0;
             }
           case "DOB":
             if (a.dob.date < b.dob.date) {
-              return -1;
+              return -1 * direction;
             } else if (a.dob.date > b.dob.date) {
-              return 1;
+              return 1 * direction;
             } else {
               return 0;
             }
