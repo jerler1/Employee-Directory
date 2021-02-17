@@ -28,11 +28,13 @@ class Home extends Component {
     // get emp lis from this.state
     // filter it based ont whats in event
     // set filtered emp to the new filtered array
-    const filtered = this.state.employeeList.filter(object => {
-
-    })
     this.setState({ filter: event.target.value });
-
+    this.setState({
+      filteredList: this.state.employeeList.data.results.filter((object) => {
+        console.log(object);
+        object.name.first.includes(this.state.filter);
+      }),
+    });
   };
 
   render() {
