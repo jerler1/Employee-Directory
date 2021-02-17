@@ -8,8 +8,8 @@ import EmployeeTable from "../Components/EmployeeTable/EmployeeTable";
 
 class Home extends Component {
   state = {
-    employeeList: {},
-    filteredList: {},
+    employeeList: [],
+    filteredList: [],
     filter: "",
   };
 
@@ -18,22 +18,23 @@ class Home extends Component {
     API.populatePeople()
       .then((resultingData) => {
         this.setState({
-          employeeList: resultingData,
+          employeeList: resultingData.data.results,
         });
       })
       .catch((err) => console.log(err));
   }
 
   handleInputChange = (event) => {
-    // get emp lis from this.state
-    // filter it based ont whats in event
-    // set filtered emp to the new filtered array
     this.setState({ filter: event.target.value });
-    this.setState({
-      filteredList: this.state.employeeList.data.results.filter((object) => {
-        console.log(object);
-        object.name.first.includes(this.state.filter);
-      }),
+  };
+
+  dynamicSearch = () => {
+    return this.state.employeeList.filter((object) => {
+      console.log(object);
+      return (
+        object.email.includes(this.state.filter) ||
+        object.phone.includes(this.state.filter)
+      );
     });
   };
 
@@ -51,7 +52,7 @@ class Home extends Component {
               data={
                 this.state.filter === ""
                   ? this.state.employeeList
-                  : this.state.filteredList
+                  : this.dynamicSearch()
               }
             />
           </Row>
