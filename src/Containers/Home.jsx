@@ -10,6 +10,7 @@ class Home extends Component {
   state = {
     employeeList: [],
     filteredList: [],
+    sortedList: [],
     filter: "",
   };
 
@@ -38,6 +39,49 @@ class Home extends Component {
     });
   };
 
+  // When a button is clicked on the table sort that column.
+  handleSorting = (event) => {
+    const target = event.target.innerHTML;
+    this.setState({
+      sortedList: this.state.employeeList.sort((a, b) => {
+        switch (target) {
+          case "Name":
+            if (a.name.first < b.name.first) {
+              return -1;
+            } else if (a.name.first > b.name.first) {
+              return 1;
+            } else {
+              return 0;
+            }
+          case "Phone":
+            if (a.phone < b.phone) {
+              return -1;
+            } else if (a.phone > b.phone) {
+              return 1;
+            } else {
+              return 0;
+            }
+          case "Email":
+            if (a.email < b.email) {
+              return -1;
+            } else if (a.email > b.email) {
+              return 1;
+            } else {
+              return 0;
+            }
+          case "DOB":
+            if (a.dob.date < b.dob.date) {
+              return -1;
+            } else if (a.dob.date > b.dob.date) {
+              return 1;
+            } else {
+              return 0;
+            }
+        }
+      }),
+    });
+  };
+
   render() {
     return (
       <>
@@ -49,6 +93,7 @@ class Home extends Component {
           </Row>
           <Row class="row container-fluid">
             <EmployeeTable
+              onClickSort={this.handleSorting}
               data={
                 this.state.filter === ""
                   ? this.state.employeeList

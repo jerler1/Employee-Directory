@@ -8,15 +8,23 @@ const EmployeeTable = (props) => {
       <thead>
         <tr>
           <th>Image</th>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>DOB</th>
+          <th>
+            <button onClick={(event) => props.onClickSort(event)}>Name</button>
+          </th>
+          <th>
+            <button onClick={(event) => props.onClickSort(event)}>Phone</button>
+          </th>
+          <th>
+            <button onClick={(event) => props.onClickSort(event)}>Email</button>
+          </th>
+          <th>
+            <button onClick={(event) => props.onClickSort(event)}>DOB</button>
+          </th>
         </tr>
       </thead>
       <tbody>
         {props.data.map((employee, index) => {
-          return <EmployeeRow values={employee} key={index}/>;
+          return <EmployeeRow values={employee} key={index} />;
         })}
       </tbody>
     </table>
