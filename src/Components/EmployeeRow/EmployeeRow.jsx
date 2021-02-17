@@ -4,7 +4,6 @@ const dayjs = require("dayjs");
 
 const EmployeeRow = (props) => {
   const newDate = dayjs(props.values.dob.date).format("MM/DD/YYYY");
-  console.log(props.values);
   return (
     <tr>
       <td>

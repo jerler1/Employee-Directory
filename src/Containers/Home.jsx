@@ -9,25 +9,49 @@ import EmployeeTable from "../Components/EmployeeTable/EmployeeTable";
 class Home extends Component {
   state = {
     employeeList: {},
+    filteredList: {},
+    filter: "",
   };
 
   // When this component is functioning - go get some users.
   componentDidMount() {
-    API.populatePeople().then((resultingData) => {
-      this.setState({ employeeList: resultingData });
-    });
+    API.populatePeople()
+      .then((resultingData) => {
+        this.setState({
+          employeeList: resultingData,
+        });
+      })
+      .catch((err) => console.log(err));
   }
+
+  handleInputChange = (event) => {
+    // get emp lis from this.state
+    // filter it based ont whats in event
+    // set filtered emp to the new filtered array
+    const filtered = this.state.employeeList.filter(object => {
+
+    })
+    this.setState({ filter: event.target.value });
+
+  };
+
   render() {
     return (
       <>
         <Container>
-          <Row class="container-fluid">
+          <Row class="row container-fluid">
             <Column>
-              <Searchbar />
+              <Searchbar change={this.handleInputChange} />
             </Column>
           </Row>
-          <Row class="container-fluid">
-            <EmployeeTable data={this.state.employeeList} />
+          <Row class="row container-fluid">
+            <EmployeeTable
+              data={
+                this.state.filter === ""
+                  ? this.state.employeeList
+                  : this.state.filteredList
+              }
+            />
           </Row>
         </Container>
       </>

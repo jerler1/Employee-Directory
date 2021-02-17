@@ -15,8 +15,8 @@ const EmployeeTable = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.data.data?.results.map((employee) => {
-          return <EmployeeRow values={employee} key={props}/>;
+        {props.data.data?.results.map((employee, index) => {
+          return <EmployeeRow values={employee} key={index}/>;
         })}
       </tbody>
     </table>
