@@ -1,3 +1,12 @@
 nav.navbar.navbar-default {
     margin-bottom: 0;
   }
+
+.custom {
+  background-color: rgb(144, 144, 212) !important;
+}
+
+#custom {
+  text-align: center;
+  font-size: 50px;
+}

@@ -32,7 +32,6 @@ class Home extends Component {
 
   dynamicSearch = () => {
     return this.state.employeeList.filter((object) => {
-      console.log(object);
       return (
         object.email.includes(this.state.filter) ||
         object.phone.includes(this.state.filter) ||
@@ -92,7 +91,7 @@ class Home extends Component {
       <>
         <Container>
           <Row class="row container-fluid">
-            <Column>
+            <Column class="mx-auto mt-3">
               <Searchbar change={this.handleInputChange} />
             </Column>
           </Row>
